@@ -23,10 +23,27 @@
             <p v-if="goals.length===0">
                 No goals have been added yet - please start adding some!
             </p>
-            <ul>
-                <li>Goal</li>
-                <li v-for="goal in goals">{{goal}}</li>
+            <ul v-else>
+                <li
+                    :key="goal"
+                    v-for="(goal, index) in goals"
+                    @click="removeGoal(index)"
+                >
+                    {{index + 1}}. {{goal}}
+                </li>
             </ul>
+
+            <!-- Looping numbers -->
+            <!-- <ul>
+                <li v-for="num in 10">{{num}}</li>
+            </ul> -->
+
+            <!-- Looping object -->
+            <!-- <ul>
+                <li v-for="(value, key, index) in {name:'Joe', age:20}">
+                    {{key}}: {{value}} - {{index}}
+                </li>
+            </ul> -->
         </section>
     </body>
 </html>
